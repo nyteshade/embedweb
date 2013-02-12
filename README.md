@@ -33,3 +33,55 @@ The parameters returned from ```EmbedWeb.getParameters(httpExchange)``` are
 using a filter by Leonardo Marcelino. His blog and the appropriate post can
 be found here:
 http://leonardom.wordpress.com/2009/08/06/getting-parameters-from-httpexchange
+
+An example of how to use org.json.simple's JSON library to output JSON with the
+embedded app. Again note that this is a very contrived example, but it shows the
+potential of making an easy API in an app.
+
+```java
+import com.nyteshade.EmbedWeb;
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import org.json.simple.JSONObject;
+
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+  public static void main(String[] args) throws NoSuchAlgorithmException {
+    EmbedWeb.WEB.addHandler(7070, "/person", new HttpHandler() {
+      @Override
+      public void handle(HttpExchange httpExchange) throws IOException {
+        Map<String, Object> params = EmbedWeb.getParameters(httpExchange);
+        Map<String, Object> output = new HashMap<String, Object>();
+
+        output.put("version", 1.0);
+        output.put("params", params);
+        output.put("message", "Whats up punk?!");
+
+        if (params.containsKey("name")) {
+          output.put("name", params.get("name"));
+          output.put("message", "Hello " + params.get("name"));
+        }
+
+        JSONObject jobj = new JSONObject(output);
+        StringBuilder buffer = new StringBuilder(jobj.toJSONString());
+
+        EmbedWeb.respondWith(httpExchange, 200, buffer, "text/javascript");
+      }
+    });
+
+    EmbedWeb.WEB.startServer(7070);
+  }
+}
+```
+
+The output is of a request to /person?name=Brie
+
+```
+{"message":"Hello Brie","name":"Brie","params":{"name":"Brie"},"version":1.0}
+```
+
