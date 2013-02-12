@@ -29,3 +29,7 @@ that listens to the root (/) path is as simple as:
   EmbedWeb.WEB.startServer(7070);                                            
 ```                                                                
                                                                              
+The parameters returned from ```EmbedWeb.getParameters(httpExchange)``` are
+using a filter by Leonardo Marcelino. His blog and the appropriate post can
+be found here:
+http://leonardom.wordpress.com/2009/08/06/getting-parameters-from-httpexchange
