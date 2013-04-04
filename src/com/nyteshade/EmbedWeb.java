@@ -443,6 +443,7 @@ public enum EmbedWeb {
    * @return a {@link Map} of {@link String}, {@link Object} pairs denoting
    *    the parameters for the request.
    */
+  @SuppressWarnings("unchecked")
   public static Map<String,Object> getParameters(HttpExchange exchange) {
     Map<String, Object> params =
            (Map<String, Object>)exchange.getAttribute(ParameterFilter.PARAMS);
