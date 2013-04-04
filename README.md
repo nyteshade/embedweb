@@ -1,7 +1,7 @@
 embedweb
 ========
 
-JavaDocs: http://htmlpreview.github.com/?https://github.com/nyteshade/embedweb/blob/master/docs/index.html
+[JavaDocs Here](http://htmlpreview.github.com/?https://github.com/nyteshade/embedweb/blob/master/docs/index.html "JavaDocs")
 
 EmbedWeb is a convenience class that wraps the HttpServer Sun, now Oracle,   
 bundles with JDK6+. This provides an incredibly easy way to implement a      
