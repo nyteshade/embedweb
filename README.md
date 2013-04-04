@@ -1,6 +1,8 @@
 embedweb
 ========
 
+JavaDocs: http://htmlpreview.github.com/?https://github.com/nyteshade/embedweb/blob/master/docs/index.html
+
 EmbedWeb is a convenience class that wraps the HttpServer Sun, now Oracle,   
 bundles with JDK6+. This provides an incredibly easy way to implement a      
 HTTP listener in any Java based application, be it a desktop app or an app   
