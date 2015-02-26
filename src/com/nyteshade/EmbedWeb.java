@@ -41,7 +41,7 @@ import java.util.concurrent.Executor;
  *   EmbedWeb.WEB.startServer(7070);
  * </code></pre>
  *
- * @author Gabriel Harrison <nyteshade@gmail.com>
+ * @author Brielle Harrison <nyteshade@gmail.com>
  * @version 12-FEB-2013
  */
 public enum EmbedWeb {
